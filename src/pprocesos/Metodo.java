@@ -124,5 +124,9 @@ public class Metodo {
         this.promedioEspera = promedioEspera;
     }
     
-    
+    public void imprimirLista(){
+        for (int i = 0; i < listaProceso.size(); i++) {
+            System.out.println("->"+listaProceso.get(i).getNombre());
+        }
+    }
 }
