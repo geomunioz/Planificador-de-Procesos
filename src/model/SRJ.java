@@ -1,8 +1,7 @@
+package model;
 
-package pprocesos;
-
+import interfaces.ISRJ;
 import java.util.ArrayList;
-
 
 public class SRJ extends Metodo implements ISRJ{
 

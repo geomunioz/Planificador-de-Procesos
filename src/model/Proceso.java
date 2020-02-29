@@ -1,5 +1,4 @@
-
-package pprocesos;
+package model;
 
 
 public class Proceso {
@@ -27,6 +26,7 @@ public class Proceso {
         this.tDesperdicio = 0;
         this.tPenalizacion = 0;
         this.tEspera = 0;
+        this.prioridad = 0;
     }
     
     public Proceso(String nombre, int llegada, int duracion){
@@ -120,6 +120,14 @@ public class Proceso {
 
     public void settEspera(int tEspera) {
         this.tEspera = tEspera;
+    }
+
+    public int getPrioridad() {
+        return prioridad;
+    }
+
+    public void setPrioridad(int prioridad) {
+        this.prioridad = prioridad;
     }
     
     

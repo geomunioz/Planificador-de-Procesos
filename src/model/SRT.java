@@ -1,8 +1,7 @@
+package model;
 
-package pprocesos;
-
+import interfaces.ISRT;
 import java.util.ArrayList;
-
 
 public class SRT extends Metodo implements ISRT{
 

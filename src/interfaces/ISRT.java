@@ -1,6 +1,4 @@
-
-package pprocesos;
-
+package interfaces;
 
 public interface ISRT {
     

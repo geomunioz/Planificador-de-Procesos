@@ -1,8 +1,7 @@
+package model;
 
-package pprocesos;
-
+import interfaces.IPrioridad;
 import java.util.List;
-
 
 public class Prioridad extends Metodo implements IPrioridad{
 

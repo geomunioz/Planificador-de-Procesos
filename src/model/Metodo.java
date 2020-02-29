@@ -1,9 +1,7 @@
-
-package pprocesos;
+package model;
 
 import java.util.LinkedList;
 import java.util.List;
-
 
 public class Metodo {
     private List<Proceso> listaProceso;

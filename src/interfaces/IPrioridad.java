@@ -1,5 +1,4 @@
-
-package pprocesos;
+package interfaces;
 
 public interface IPrioridad {
     

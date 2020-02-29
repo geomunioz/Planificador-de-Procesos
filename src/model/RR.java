@@ -1,5 +1,4 @@
-
-package pprocesos;
+package model;
 
 public class RR {
     

@@ -1,5 +1,7 @@
 
-package pprocesos;
+package view;
+
+import model.Controlador;
 
 public class PProcesos {
 
