@@ -1,10 +1,12 @@
 package model;
 
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
 public class Metodo {
     private List<Proceso> listaProceso;
+    private List<Unit> listaLUE;
     private double totalRetorno;
     private double totalRespuesta;
     private double totalDesperdicio;
@@ -17,7 +19,8 @@ public class Metodo {
     private double promedioEspera;
     
     public Metodo(){
-        listaProceso = new LinkedList();
+        this.listaProceso = new LinkedList();
+        this.listaLUE = new ArrayList();
         this.totalRetorno = 0;
         this.totalRespuesta = 0;
         this.totalDesperdicio = 0;
@@ -32,6 +35,34 @@ public class Metodo {
     
     public Metodo(List<Proceso> procesos){
         this.listaProceso = procesos;
+        this.listaLUE = new ArrayList();
+        this.totalRetorno = 0;
+        this.totalRespuesta = 0;
+        this.totalDesperdicio = 0;
+        this.totalPenalizacion = 0;
+        this.totalEspera = 0;
+        this.promedioRetorno = 0;
+        this.promedioRespuesta = 0;
+        this.promedioDesperdicio = 0;
+        this.promedioPenalizacion = 0;
+        this.promedioEspera = 0;
+    }
+
+    public List<Unit> getListaLUE() {
+        return listaLUE;
+    }
+
+    public void setListaLUE(List<Unit> listaLUE) {
+        this.listaLUE = listaLUE;
+    }
+    
+    public void addArrivalTimeToLUE(int position, String nombre){
+        Unit unit = listaLUE.get(position);
+      
+        String L = unit.getL();
+        L += " " + nombre;
+        
+        unit.setL(L);
     }
 
     public List<Proceso> getListaProceso() {
@@ -127,4 +158,32 @@ public class Metodo {
             System.out.println("->"+listaProceso.get(i).getNombre());
         }
     }
+    
+    public void initLUE(){
+        int size = getLUEsize();
+        System.out.println("LUE size" + size);
+        int position = 0;
+        
+        for(int i = 0; i<=size; i++){
+            Unit unit = new Unit();
+            
+            if(i%2 == 0){
+                unit.setU(String.valueOf(position));
+                position++;
+            }
+            
+            listaLUE.add(unit); 
+        }
+    }
+    
+    private int getLUEsize(){
+        int size = 0;
+        
+        for(Proceso proceso : this.listaProceso){
+            size += proceso.getdRafaga();
+        }
+        
+        return size;
+    }
+    
 }

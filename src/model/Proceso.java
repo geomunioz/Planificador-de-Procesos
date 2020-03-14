@@ -4,7 +4,7 @@ package model;
 public class Proceso {
     private String nombre;
     private int prioridad;
-    private int llegada;
+    private int tLlegada;
     private int dRafaga;
     private int tArranque;
     private int tFinalizacion;
@@ -17,7 +17,7 @@ public class Proceso {
     public Proceso(){
         this.nombre = " ";
         this.prioridad = 0;
-        this.llegada = 0;
+        this.tLlegada = 0;
         this.dRafaga = 0;
         this.tArranque = 0;
         this.tFinalizacion = 0;
@@ -32,14 +32,31 @@ public class Proceso {
     public Proceso(String nombre, int llegada, int duracion){
         this.nombre = nombre;
         this.dRafaga = duracion;
-        this.llegada = llegada;
+        this.tLlegada = llegada;
+        this.prioridad = 0;
+        this.tArranque = 0;
+        this.tFinalizacion = 0;
+        this.tRetorno = 0;
+        this.tRespuesta = 0;
+        this.tDesperdicio = 0;
+        this.tPenalizacion = 0;
+        this.tEspera = 0;
+        this.prioridad = 0;
     }
     
     public Proceso(String nombre, int llegada,int duracion, int prioridad){
         this.nombre = nombre;
         this.dRafaga = duracion;
         this.prioridad = prioridad;
-        this.llegada = llegada;
+        this.tLlegada = llegada;
+        this.tArranque = 0;
+        this.tFinalizacion = 0;
+        this.tRetorno = 0;
+        this.tRespuesta = 0;
+        this.tDesperdicio = 0;
+        this.tPenalizacion = 0;
+        this.tEspera = 0;
+        this.prioridad = 0;
     }
 
     public String getNombre() {
@@ -50,12 +67,20 @@ public class Proceso {
         this.nombre = nombre;
     }
 
-    public int getLlegada() {
-        return llegada;
+    public int getPrioridad() {
+        return prioridad;
     }
 
-    public void setLlegada(int llegada) {
-        this.llegada = llegada;
+    public void setPrioridad(int prioridad) {
+        this.prioridad = prioridad;
+    }
+
+    public int gettLlegada() {
+        return tLlegada;
+    }
+
+    public void settLlegada(int tLlegada) {
+        this.tLlegada = tLlegada;
     }
 
     public int getdRafaga() {
@@ -121,14 +146,5 @@ public class Proceso {
     public void settEspera(int tEspera) {
         this.tEspera = tEspera;
     }
-
-    public int getPrioridad() {
-        return prioridad;
-    }
-
-    public void setPrioridad(int prioridad) {
-        this.prioridad = prioridad;
-    }
-    
     
 }
