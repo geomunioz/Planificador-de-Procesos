@@ -5,6 +5,7 @@ import java.util.LinkedList;
 import java.util.List;
 
 public class Metodo {
+
     private List<Proceso> listaProceso;
     private List<Unit> listaLUE;
     private double totalRetorno;
@@ -17,8 +18,9 @@ public class Metodo {
     private double promedioDesperdicio;
     private double promedioPenalizacion;
     private double promedioEspera;
-    
-    public Metodo(){
+    private String nombreMetodo;
+
+    public Metodo() {
         this.listaProceso = new LinkedList();
         this.listaLUE = new ArrayList();
         this.totalRetorno = 0;
@@ -31,9 +33,10 @@ public class Metodo {
         this.promedioDesperdicio = 0;
         this.promedioPenalizacion = 0;
         this.promedioEspera = 0;
+        this.nombreMetodo = "Metodo Sin nombre";
     }
-    
-    public Metodo(List<Proceso> procesos){
+
+    public Metodo(List<Proceso> procesos) {
         this.listaProceso = procesos;
         this.listaLUE = new ArrayList();
         this.totalRetorno = 0;
@@ -46,6 +49,7 @@ public class Metodo {
         this.promedioDesperdicio = 0;
         this.promedioPenalizacion = 0;
         this.promedioEspera = 0;
+        this.nombreMetodo = "Metodo Sin nombre";
     }
 
     public List<Unit> getListaLUE() {
@@ -54,15 +58,6 @@ public class Metodo {
 
     public void setListaLUE(List<Unit> listaLUE) {
         this.listaLUE = listaLUE;
-    }
-    
-    public void addArrivalTimeToLUE(int position, String nombre){
-        Unit unit = listaLUE.get(position);
-      
-        String L = unit.getL();
-        L += " " + nombre;
-        
-        unit.setL(L);
     }
 
     public List<Proceso> getListaProceso() {
@@ -152,38 +147,145 @@ public class Metodo {
     public void setPromedioEspera(double promedioEspera) {
         this.promedioEspera = promedioEspera;
     }
-    
-    public void imprimirLista(){
+
+    public String getNombreMetodo() {
+        return nombreMetodo;
+    }
+
+    public void setNombreMetodo(String nombreMetodo) {
+        this.nombreMetodo = nombreMetodo;
+    }
+
+    public void imprimirListaProcesos() {
         for (int i = 0; i < listaProceso.size(); i++) {
-            System.out.println("->"+listaProceso.get(i).getNombre());
+            System.out.println("->" + listaProceso.get(i).getNombre());
         }
     }
     
-    public void initLUE(){
+    public void addArrivalTimeToLUE(int position, String nombre) {
+        /* Obtenemos la unidad de la pocision indicada de la estrutura LUE */
+        Unit unit = listaLUE.get(position);
+
+        /* Obtenemos los procesos que ya estan en esta unidad  y agregamos el  nuevo */
+        String L = unit.getL();
+        L += " " + nombre;
+        
+        unit.setL(L);
+    }
+
+    public void initLUE() {
+        /* Obtenemos el tamaño máximo de la estrutura LUE */
         int size = getLUEsize();
-        System.out.println("LUE size" + size);
         int position = 0;
         
-        for(int i = 0; i<=size; i++){
+        /* Hacemos un ciclo para crear la cantidad necesaria de unidades (cuadritos) */
+        for (int i = 0; i <= size; i++) {
+            /* Creamos una nueva unidad (Cuadrito) */
             Unit unit = new Unit();
-            
-            if(i%2 == 0){
+
+            /* Si la pocision es para, colocamos el numero de unidad (Para dejar un espacio entre cuadritos) */
+            if (i % 2 == 0) {
                 unit.setU(String.valueOf(position));
                 position++;
             }
-            
-            listaLUE.add(unit); 
+
+            /* Lo agregamos a la estructura */
+            listaLUE.add(unit);
         }
     }
-    
-    private int getLUEsize(){
+
+    private int getLUEsize() {
         int size = 0;
+
+        /* Recorrmos la lista de procesos y le vamos sumando la
+            rafaga de cada proceso al tamaño para obtener el tamaño total*/
         
-        for(Proceso proceso : this.listaProceso){
+        for (Proceso proceso : this.listaProceso) 
             size += proceso.getdRafaga();
-        }
         
         return size;
     }
-    
+
+    public void fillArrivalTime() {
+
+        /* Recorremos la lista de procesos */
+        for (Proceso proceso : getListaProceso()) {
+            /* Obtenemos el tiempo de llegada del proceso */
+            int tLlegada = proceso.gettLlegada();
+
+            /* Validamos que sea un tiempo valido */
+            if (tLlegada >= 0) {
+                /* Obtenemos el numero de pocisión (cuadrito) para agregar el proceso */
+                int position = tLlegada * 2;
+                /* Agregamos el proceso en su tiempo dellegada dentro de la estructura LUE */
+                addArrivalTimeToLUE(position, proceso.getNombre());
+            } else {
+                System.out.println("Error: El timepo de llegada tiene que ser mayor o igual a cero");
+            }
+        }
+    }
+
+    public void calculateResult() {
+        /* Calculamos los datos de cada proceso */
+        for (Proceso proceso : getListaProceso()) {
+            proceso.settRetorno(proceso.gettFinalizacion() - proceso.gettArranque());
+            proceso.settRespuesta(proceso.gettFinalizacion() - proceso.gettLlegada());
+            proceso.settDesperdicio(proceso.gettRespuesta() - proceso.getdRafaga());
+            proceso.settPenalizacion(proceso.gettRespuesta() / Double.valueOf(proceso.getdRafaga()));
+            proceso.settEspera(proceso.gettArranque() - proceso.gettLlegada());
+
+            /* Calculamos los totales */
+            this.setTotalRetorno(this.getTotalRetorno() + proceso.gettRetorno());
+            this.setTotalRespuesta(this.getTotalRespuesta() + proceso.gettRespuesta());
+            this.setTotalDesperdicio(this.getTotalDesperdicio() + proceso.gettDesperdicio());
+            this.setTotalPenalizacion(this.getTotalPenalizacion() + proceso.gettPenalizacion());
+            this.setTotalEspera(this.getTotalEspera() + proceso.gettEspera());
+        }
+
+        /* Obtenemos los promedios */
+        int processSize = getListaProceso().size();
+        this.setPromedioRetorno(this.getTotalRetorno() / processSize);
+        this.setPromedioRespuesta(this.getTotalRespuesta() / processSize);
+        this.setPromedioDesperdicio(this.getTotalDesperdicio() / processSize);
+        this.setPromedioPenalizacion(this.getTotalPenalizacion() / processSize);
+        this.setPromedioEspera(this.getTotalEspera() / processSize);
+    }
+
+    @Override
+    public String toString() {
+
+        String s = nombreMetodo + " {";
+
+        s += "\t\nProcesos {";
+        for (Proceso proceso : listaProceso) {
+            s += "\t\t\n" + proceso.toString();
+        }
+        s += "\n\t}";
+
+        s += "\t\nLUE {";
+        for (Unit unit : getListaLUE()) {
+            s += "\t\t\n" + unit.toString();
+        }
+        s += "\n\t}";
+
+        s += "\t\nTotales {";
+        s += "\t\t\nTotal Retorno: " + totalRetorno;
+        s += "\t\t\nTotal Respuesta: " + totalRespuesta;
+        s += "\t\t\nTotal Desperdicio: " + totalDesperdicio;
+        s += "\t\t\nTotal Penalización: " + totalPenalizacion;
+        s += "\t\t\nTotal Espera: " + totalEspera;
+        s += "\n\t}";
+
+        s += "\t\nPromedios {";
+        s += "\t\t\nPromedio Retorno: " + promedioRetorno;
+        s += "\t\t\nPromedio Respuesta: " + promedioRespuesta;
+        s += "\t\t\nPromedio Desperdicio: " + promedioDesperdicio;
+        s += "\t\t\nPromedio Penalización: " + promedioPenalizacion;
+        s += "\t\t\nPromedio Espera: " + promedioEspera;
+        s += "\n\t}";
+
+        s += "\n}";
+        return s;
+    }
+
 }

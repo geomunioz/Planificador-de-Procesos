@@ -5,14 +5,16 @@ import interfaces.RunnableMethod;
 import java.util.ArrayList;
 import java.util.List;
 
-public class SRJ extends Metodo implements RunnableMethod, ISRJ{
+public class SJF extends Metodo implements RunnableMethod, ISRJ{
 
-    public SRJ() {
+    public SJF() {
         super();
+        setNombreMetodo("Shortest Job First (SJF)");
     }
     
-    public SRJ(ArrayList<Proceso> procesos) {
+    public SJF(ArrayList<Proceso> procesos) {
         super(procesos);
+        setNombreMetodo("Shortest Job First (SJF)");
     }
 
     @Override

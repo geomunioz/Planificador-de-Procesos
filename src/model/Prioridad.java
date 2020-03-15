@@ -8,10 +8,12 @@ public class Prioridad extends Metodo implements RunnableMethod, IPrioridad{
 
     public Prioridad() {
         super();
+        setNombreMetodo("Prioridad");
     }
     
     public Prioridad(List<Proceso> procesos) {
         super(procesos);
+        setNombreMetodo("Prioridad");
     }
 
     @Override

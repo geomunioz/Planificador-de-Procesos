@@ -8,10 +8,12 @@ public class RR extends Metodo implements RunnableMethod, IRR{
 
     public RR() {
         super();
+        setNombreMetodo("Round Robin (RR)");
     }
     
     public RR(List<Proceso> procesos) {
         super(procesos);
+        setNombreMetodo("Round Robin (RR)");
     }
 
     @Override

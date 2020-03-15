@@ -26,7 +26,6 @@ public class Proceso {
         this.tDesperdicio = 0;
         this.tPenalizacion = 0;
         this.tEspera = 0;
-        this.prioridad = 0;
     }
     
     public Proceso(String nombre, int llegada, int duracion){
@@ -41,7 +40,6 @@ public class Proceso {
         this.tDesperdicio = 0;
         this.tPenalizacion = 0;
         this.tEspera = 0;
-        this.prioridad = 0;
     }
     
     public Proceso(String nombre, int llegada,int duracion, int prioridad){
@@ -56,7 +54,6 @@ public class Proceso {
         this.tDesperdicio = 0;
         this.tPenalizacion = 0;
         this.tEspera = 0;
-        this.prioridad = 0;
     }
 
     public String getNombre() {
@@ -146,5 +143,25 @@ public class Proceso {
     public void settEspera(int tEspera) {
         this.tEspera = tEspera;
     }
+
+    @Override
+    public String toString() {
+        
+        return "Proceso {"
+                + "\t\nNombre: " + nombre
+                + "\t\nPrioridad: " + prioridad
+                + "\t\nTiempo de Llegada: " + tLlegada
+                + "\t\nDuración de Ráfaga: " + dRafaga
+                + "\t\nTiempo de Arranque: " + tArranque
+                + "\t\nTiempo de Finalización: " + tFinalizacion
+                + "\t\nTiempo de Retorno: " + tRetorno
+                + "\t\nTiempo de Respuesta: " + tRespuesta
+                + "\t\nTasa de desperdicio: " + tDesperdicio
+                + "\t\nTasa de penalización: " + tPenalizacion
+                + "\t\nTiempo de espera: " + tEspera
+                + "\n}";
+    }
+    
+    
     
 }
