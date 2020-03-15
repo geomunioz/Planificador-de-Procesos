@@ -208,7 +208,7 @@ public class Metodo implements IMethodUtils, ILUE {
         for (Proceso proceso : this.listaProceso) 
             size += proceso.getdRafaga();
         
-        return size;
+        return size*2;
     }
 
     @Override

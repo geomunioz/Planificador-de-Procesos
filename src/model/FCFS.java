@@ -54,8 +54,8 @@ public class FCFS extends Metodo implements RunnableMethod, IFCFS {
             proceso.settFinalizacion(tFinalizacion);
 
             /* Colocamos el proceso en la esructura LUE en E dentro del rango */
-            for (int i = tArranque; i < tFinalizacion; i++) {
-                Unit unit = getListaLUE().get(i);
+            for (int i = tArranque; i < tFinalizacion; i++) {                
+                Unit unit = getListaLUE().get((i*2) + 1);
                 unit.setE(nombre);
             }
 
