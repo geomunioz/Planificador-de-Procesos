@@ -1,10 +1,12 @@
 package model;
 
+import interfaces.ILUE;
+import interfaces.IMethodUtils;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
-public class Metodo {
+public class Metodo implements IMethodUtils, ILUE {
 
     private List<Proceso> listaProceso;
     private List<Unit> listaLUE;
@@ -162,6 +164,7 @@ public class Metodo {
         }
     }
     
+    @Override
     public void addArrivalTimeToLUE(int position, String nombre) {
         /* Obtenemos la unidad de la pocision indicada de la estrutura LUE */
         Unit unit = listaLUE.get(position);
@@ -173,6 +176,7 @@ public class Metodo {
         unit.setL(L);
     }
 
+    @Override
     public void initLUE() {
         /* Obtenemos el tamaño máximo de la estrutura LUE */
         int size = getLUEsize();
@@ -194,7 +198,8 @@ public class Metodo {
         }
     }
 
-    private int getLUEsize() {
+    @Override
+    public int getLUEsize() {
         int size = 0;
 
         /* Recorrmos la lista de procesos y le vamos sumando la
@@ -206,7 +211,8 @@ public class Metodo {
         return size;
     }
 
-    public void fillArrivalTime() {
+    @Override
+    public void fillArrivalTimeLUE() {
 
         /* Recorremos la lista de procesos */
         for (Proceso proceso : getListaProceso()) {
@@ -225,6 +231,7 @@ public class Metodo {
         }
     }
 
+    @Override
     public void calculateResult() {
         /* Calculamos los datos de cada proceso */
         for (Proceso proceso : getListaProceso()) {

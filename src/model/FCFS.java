@@ -26,7 +26,7 @@ public class FCFS extends Metodo implements RunnableMethod, IFCFS {
         initLUE();
 
         /* Llenamos los valores L (Llegada) de la estructura LUE */
-        fillArrivalTime();
+        fillArrivalTimeLUE();
 
         /* LLenamos E (Ejecución) de la estructura E */
         fillExecutionTime();
