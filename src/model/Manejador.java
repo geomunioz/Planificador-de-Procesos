@@ -34,6 +34,12 @@ public class Manejador {
     }
 
     public Metodo shortestJobFirst(List<Proceso> processList) {
+        /* Ordenamos la lista de procesos por tiempo de llegada */
+        Comparator<Proceso> compareById = (Proceso p1, Proceso p2)
+                -> ((Integer) p1.gettLlegada()).compareTo(((Integer) p2.gettLlegada()));
+
+        Collections.sort(processList, compareById);
+        
         SJF mSJF = new SJF();
         return mSJF.run(processList);
     }
