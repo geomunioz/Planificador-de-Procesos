@@ -33,8 +33,6 @@ public class Main {
         /*metodo = manejador.firstComeFirtServed(listaFCFS);
         System.out.println(metodo);*/
         
-        
-        
         /* PRUEBA Prioridad */
         Manejador manejador2 = new Manejador();
         List<Proceso> listaP = new ArrayList();
@@ -49,6 +47,17 @@ public class Main {
         metodo = manejador2.priority(listaP);
         System.out.println(metodo);
         
+        //prueba SJF
+        Manejador manejador3 = new Manejador();
+        List<Proceso> listaSJF = new ArrayList();
+        listaSJF.add(new Proceso("P1", 0, 10));
+        listaSJF.add(new Proceso("P2", 0, 1));
+        listaSJF.add(new Proceso("P3", 0, 2));
+        listaSJF.add(new Proceso("P4", 0, 1));
+        listaSJF.add(new Proceso("P5", 0, 5));
+        //prueba SJF
+        metodo=manejador3.shortestJobFirst(listaSJF);
+        System.out.println(metodo);
         
         
     }
