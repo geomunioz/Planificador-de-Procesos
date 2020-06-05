@@ -164,6 +164,140 @@ public class Metodo implements IMethodUtils, ILUE {
         }
     }
     
+    public String resultado(){
+        StringBuilder str = new StringBuilder();
+        
+        str.append(
+            "PROCESO" + this.addingSpace(2) + 
+            "TIEMPO LLEGADA" + this.addingSpace(2) + //25
+            "DURACION RAFAGA" + this.addingSpace(2) + //42
+            "TIEMPO ARRANQUE" + this.addingSpace(2) +//59
+            "TIEMPO FINALIZACION" + this.addingSpace(2) +//80
+            "TIEMPO RETORNO"+ this.addingSpace(2) +
+            "TIEMPO RESPUESTA"+ this.addingSpace(2) +
+            "TASA DESPERDICIO" + this.addingSpace(2) +
+            "TASA PENALIZACION" + this.addingSpace(2) +
+            "TIEMPO ESPERA\n"
+        );
+        
+        for (Proceso listaProceso1 : listaProceso) {
+            str.append(
+                            listaProceso1.getNombre() + this.addingSpace(9 - listaProceso1.getNombre().length()) + 
+                            Integer.toString(listaProceso1.gettLlegada()) + this.addingSpace(16 - Integer.toString(listaProceso1.gettLlegada()).length()) +
+                            Integer.toString(listaProceso1.getdRafaga()) + this.addingSpace(17 - Integer.toString(listaProceso1.getdRafaga()).length()) +
+                            Integer.toString(listaProceso1.gettArranque()) + this.addingSpace(17 - Integer.toString(listaProceso1.gettArranque()).length()) +
+                            Integer.toString(listaProceso1.gettFinalizacion()) + this.addingSpace(21 - Integer.toString(listaProceso1.gettFinalizacion()).length()) +
+                            Integer.toString(listaProceso1.gettRetorno()) + this.addingSpace(16 - Integer.toString(listaProceso1.gettRetorno()).length()) +
+                            Integer.toString(listaProceso1.gettRespuesta()) + this.addingSpace(18 - Integer.toString(listaProceso1.gettRespuesta()).length()) +
+                            Integer.toString(listaProceso1.gettDesperdicio()) + this.addingSpace(18 - Integer.toString(listaProceso1.gettDesperdicio()).length()) +
+                            Double.toString(listaProceso1.gettPenalizacion()) + this.addingSpace(19 - Double.toString(listaProceso1.gettPenalizacion()).length()) +
+                            Double.toString(listaProceso1.gettEspera()) + this.addingSpace(13 - Double.toString(listaProceso1.gettEspera()).length()) +
+            "\n");
+            
+        }
+        
+        str.append(
+                "TIEMPO TOTAL"+ this.addingSpace(68)+
+                Double.toString(totalRetorno)+ this.addingSpace(16 - Double.toString(totalRetorno).length()) +
+                Double.toString(totalRespuesta)+ this.addingSpace(18 - Double.toString(totalRespuesta).length()) +
+                Double.toString(totalDesperdicio)+ this.addingSpace(18 - Double.toString(totalDesperdicio).length()) +
+                Double.toString(totalPenalizacion)+ this.addingSpace(19 - Double.toString(totalPenalizacion).length()) + 
+                Double.toString(totalEspera)+ this.addingSpace(13 - Double.toString(totalEspera).length()) + "\n"+
+                "PROMEDIO"+this.addingSpace(72)+
+                Double.toString(promedioRetorno)+ this.addingSpace(16 - Double.toString(promedioRetorno).length()) +
+                Double.toString(promedioRespuesta)+ this.addingSpace(18 - Double.toString(promedioRespuesta).length()) +
+                Double.toString(promedioDesperdicio)+ this.addingSpace(18 - Double.toString(promedioDesperdicio).length()) +
+                Double.toString(promedioPenalizacion)+ this.addingSpace(19 - Double.toString(promedioPenalizacion).length()) + 
+                Double.toString(promedioEspera)+ this.addingSpace(13 - Double.toString(promedioEspera).length()) + "\n"
+        );
+        
+        return str.toString();
+    }
+    
+    public String resultadoconPriori(){
+        StringBuilder str = new StringBuilder();
+        
+        str.append(
+            "PRIORIDAD"+ this.addingSpace(2)+
+            "PROCESO" + this.addingSpace(2) + 
+            "TIEMPO LLEGADA" + this.addingSpace(2) + 
+            "DURACION RAFAGA" + this.addingSpace(2) + 
+            "TIEMPO ARRANQUE" + this.addingSpace(2) +
+            "TIEMPO FINALIZACION" + this.addingSpace(2) +
+            "TIEMPO RETORNO"+ this.addingSpace(2) + //
+            "TIEMPO RESPUESTA"+ this.addingSpace(2) +
+            "TASA DESPERDICIO" + this.addingSpace(2) +
+            "TASA PENALIZACION" + this.addingSpace(2) +
+            "TIEMPO ESPERA\n"
+        );
+        
+        for (Proceso listaProceso1 : listaProceso) {
+            str.append(
+                            Integer.toString(listaProceso1.getPrioridad()) + this.addingSpace(11 - Integer.toString(listaProceso1.getPrioridad()).length()) +
+                            listaProceso1.getNombre() + this.addingSpace(9 - listaProceso1.getNombre().length()) + 
+                            Integer.toString(listaProceso1.gettLlegada()) + this.addingSpace(16 - Integer.toString(listaProceso1.gettLlegada()).length()) +
+                            Integer.toString(listaProceso1.getdRafaga()) + this.addingSpace(17 - Integer.toString(listaProceso1.getdRafaga()).length()) +
+                            Integer.toString(listaProceso1.gettArranque()) + this.addingSpace(17 - Integer.toString(listaProceso1.gettArranque()).length()) +
+                            Integer.toString(listaProceso1.gettFinalizacion()) + this.addingSpace(21 - Integer.toString(listaProceso1.gettFinalizacion()).length()) +
+                            Integer.toString(listaProceso1.gettRetorno()) + this.addingSpace(16 - Integer.toString(listaProceso1.gettRetorno()).length()) +
+                            Integer.toString(listaProceso1.gettRespuesta()) + this.addingSpace(18 - Integer.toString(listaProceso1.gettRespuesta()).length()) +
+                            Integer.toString(listaProceso1.gettDesperdicio()) + this.addingSpace(18 - Integer.toString(listaProceso1.gettDesperdicio()).length()) +
+                            Double.toString(listaProceso1.gettPenalizacion()) + this.addingSpace(19 - Double.toString(listaProceso1.gettPenalizacion()).length()) +
+                            Double.toString(listaProceso1.gettEspera()) + this.addingSpace(13 - Double.toString(listaProceso1.gettEspera()).length()) +
+            "\n");
+            
+        }
+        
+        str.append(
+                "TIEMPO TOTAL"+ this.addingSpace(79)+
+                Double.toString(totalRetorno)+ this.addingSpace(16 - Double.toString(totalRetorno).length()) +
+                Double.toString(totalRespuesta)+ this.addingSpace(18 - Double.toString(totalRespuesta).length()) +
+                Double.toString(totalDesperdicio)+ this.addingSpace(18 - Double.toString(totalDesperdicio).length()) +
+                Double.toString(totalPenalizacion)+ this.addingSpace(19 - Double.toString(totalPenalizacion).length()) + 
+                Double.toString(totalEspera)+ this.addingSpace(13 - Double.toString(totalEspera).length()) + "\n"+
+                "PROMEDIO"+this.addingSpace(83)+
+                Double.toString(promedioRetorno)+ this.addingSpace(16 - Double.toString(promedioRetorno).length()) +
+                Double.toString(promedioRespuesta)+ this.addingSpace(18 - Double.toString(promedioRespuesta).length()) +
+                Double.toString(promedioDesperdicio)+ this.addingSpace(18 - Double.toString(promedioDesperdicio).length()) +
+                Double.toString(promedioPenalizacion)+ this.addingSpace(19 - Double.toString(promedioPenalizacion).length()) + 
+                Double.toString(promedioEspera)+ this.addingSpace(13 - Double.toString(promedioEspera).length()) + "\n"
+        );
+        return str.toString();
+    }
+    
+    public String resultadoLUE(){
+        String str = "";
+        
+        str +="L\t";
+        
+        for (Unit listaLUE1 : listaLUE) {
+            str += listaLUE1.getL() + "\t";
+        }
+        
+        str += "\nU\t";
+        
+        for (Unit listaLUE1 : listaLUE) {
+            str += listaLUE1.getU() + "\t";
+        }
+        
+        str += "\nE\t";
+        
+        for (Unit listaLUE1 : listaLUE) {
+            str += listaLUE1.getE() + "\t";
+        }
+        
+        str += "\n";
+        
+        return str;
+    }
+       
+    private String addingSpace(int cant){
+        StringBuilder spaces = new StringBuilder();
+        for (int i = 0 ; i < cant ; i++)
+            spaces.append(' ');
+        return spaces.toString();
+    }
+    
     @Override
     public void addArrivalTimeToLUE(int position, String nombre) {
         /* Obtenemos la unidad de la pocision indicada de la estrutura LUE */
