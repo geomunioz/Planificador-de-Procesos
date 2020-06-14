@@ -81,7 +81,7 @@ public class Prioridad extends Metodo implements RunnableMethod, IPrioridad{
             
             /*Agregamos a Lue*/
             Unit unit = getListaLUE().get((posLUE*2) + 1);
-            un  it.setE(nombre);
+            unit.setE(nombre);
             
             
             /*Reducimos valore de duracion de rafaga a proceso ejecutado */

@@ -3,6 +3,7 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+<<<<<<< HEAD
             <file>file:/C:/Users/ianpe/Documents/NetBeansProjects/Planificador/src/view/Main.java</file>
             <file>file:/C:/Users/ianpe/Documents/NetBeansProjects/Planificador/src/model/FCFS.java</file>
             <file>file:/C:/Users/ianpe/Documents/NetBeansProjects/Planificador/src/model/RR.java</file>
@@ -11,6 +12,13 @@
             <file>file:/C:/Users/ianpe/Documents/NetBeansProjects/Planificador/src/model/Unit.java</file>
             <file>file:/C:/Users/ianpe/Documents/NetBeansProjects/Planificador/src/model/Metodo.java</file>
             <file>file:/C:/Users/ianpe/Documents/NetBeansProjects/Planificador/src/model/Prioridad.java</file>
+=======
+            <file>file:/C:/Users/Jorge/Documents/NetBeansProjects/PProcesos/src/view/Main.java</file>
+            <file>file:/C:/Users/Jorge/Documents/NetBeansProjects/PProcesos/src/model/FCFS.java</file>
+            <file>file:/C:/Users/Jorge/Documents/NetBeansProjects/PProcesos/src/model/Metodo.java</file>
+            <file>file:/C:/Users/Jorge/Documents/NetBeansProjects/PProcesos/src/view/Ventana.java</file>
+            <file>file:/C:/Users/Jorge/Documents/NetBeansProjects/PProcesos/src/model/Manejador.java</file>
+>>>>>>> ae94dba9f6f37287a536cebcf7fe6484cb2c1a36
         </group>
     </open-files>
 </project-private>
