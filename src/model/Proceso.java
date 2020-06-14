@@ -30,6 +30,20 @@ public class Proceso {
         
     }
     
+    public Proceso(Proceso proceso){
+        this.nombre = proceso.nombre;
+        this.dRafaga = proceso.dRafaga;
+        this.tLlegada = proceso.tLlegada;
+        this.prioridad = proceso.prioridad;
+        this.tArranque = proceso.tArranque;
+        this.tFinalizacion = proceso.tFinalizacion;
+        this.tRetorno = proceso.tRetorno;
+        this.tRespuesta = proceso.tRespuesta;
+        this.tDesperdicio = proceso.tDesperdicio;
+        this.tPenalizacion = proceso.tPenalizacion;
+        this.tEspera = proceso.tEspera;
+    }
+    
     public Proceso(String nombre, int llegada, int duracion){
         this.nombre = nombre;
         this.dRafaga = duracion;

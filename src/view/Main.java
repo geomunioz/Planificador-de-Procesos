@@ -60,6 +60,15 @@ public class Main {
         System.out.println(metodo);
         
         
+        /* PRUEBA FCFS */
+        //metodo = manejador.firstComeFirtServed(listaFCFS);
+        //System.out.println(metodo);
+        /* PRUEBA FCFS */
+        
+        /* PRUBEA RR */
+        metodo = manejador.roundRobin(listaFCFS, 4);
+        System.out.println(metodo);     
+        /* PRUBEA RR */
     }
 
 }

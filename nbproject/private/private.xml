@@ -3,14 +3,14 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Jorge/Documents/NetBeansProjects/PProcesos/src/view/Main.java</file>
-            <file>file:/C:/Users/Jorge/Documents/NetBeansProjects/PProcesos/src/model/FCFS.java</file>
-            <file>file:/C:/Users/Jorge/Documents/NetBeansProjects/PProcesos/src/interfaces/RunnableMethod.java</file>
-            <file>file:/C:/Users/Jorge/Documents/NetBeansProjects/PProcesos/src/model/Metodo.java</file>
-            <file>file:/C:/Users/Jorge/Documents/NetBeansProjects/PProcesos/src/model/Prioridad.java</file>
-            <file>file:/C:/Users/Jorge/Documents/NetBeansProjects/PProcesos/src/interfaces/IPrioridad.java</file>
-            <file>file:/C:/Users/Jorge/Documents/NetBeansProjects/PProcesos/src/model/Manejador.java</file>
-            <file>file:/C:/Users/Jorge/Documents/NetBeansProjects/PProcesos/src/model/Proceso.java</file>
+            <file>file:/C:/Users/ianpe/Documents/NetBeansProjects/Planificador/src/view/Main.java</file>
+            <file>file:/C:/Users/ianpe/Documents/NetBeansProjects/Planificador/src/model/FCFS.java</file>
+            <file>file:/C:/Users/ianpe/Documents/NetBeansProjects/Planificador/src/model/RR.java</file>
+            <file>file:/C:/Users/ianpe/Documents/NetBeansProjects/Planificador/src/model/SJF.java</file>
+            <file>file:/C:/Users/ianpe/Documents/NetBeansProjects/Planificador/src/model/SRT.java</file>
+            <file>file:/C:/Users/ianpe/Documents/NetBeansProjects/Planificador/src/model/Unit.java</file>
+            <file>file:/C:/Users/ianpe/Documents/NetBeansProjects/Planificador/src/model/Metodo.java</file>
+            <file>file:/C:/Users/ianpe/Documents/NetBeansProjects/Planificador/src/model/Prioridad.java</file>
         </group>
     </open-files>
 </project-private>

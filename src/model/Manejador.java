@@ -28,8 +28,8 @@ public class Manejador {
         return mPrioridad.run(processList);
     }
 
-    public Metodo roundRobin(List<Proceso> processList) {
-        RR mRR = new RR();
+    public Metodo roundRobin(List<Proceso> processList, int quantum) {
+        RR mRR = new RR(quantum);
         return mRR.run(processList);
     }
 
