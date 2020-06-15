@@ -1,3 +1,4 @@
+
 package model;
 
 import interfaces.IRR;
@@ -61,7 +62,7 @@ public class RR extends Metodo implements RunnableMethod, IRR {
 
                 int tFinalizacion = 0;
 
-                if (proceso.getdRafaga() < quantum) {
+                if (proceso.getdRafaga() <= quantum) {
                     /* Si su rafaga es menor que el quantum; Se ejecuta completo */
 
                     tFinalizacion = tArranque + rafaga;
@@ -95,6 +96,7 @@ public class RR extends Metodo implements RunnableMethod, IRR {
 
     private int gettFinalizacion(Proceso proceso) {
         int tFinalizacion = 0;
+        
         String name = proceso.getNombre();
         List<Proceso> list = getListaProceso();
 
@@ -112,10 +114,15 @@ public class RR extends Metodo implements RunnableMethod, IRR {
         /* Calculamos los datos de cada proceso */
         List<Proceso> list = getListaProceso();
 
-        for (int i = 0; i < numberOfProceses; i++) {
+        for (int i = 0; i < numberOfProceses; i++) {            
             Proceso proceso = list.get(i);
+            
+            System.out.println("Nombre del proceso: " + proceso.getNombre());
+            
             int tFinalizacion = this.gettFinalizacion(proceso);
 
+            System.out.println("Tiempo de retorno: " + tFinalizacion + " - " + proceso.gettArranque());
+            
             proceso.settRetorno(tFinalizacion - proceso.gettArranque());
             proceso.settRespuesta(tFinalizacion - proceso.gettLlegada());
             proceso.settDesperdicio(proceso.gettRespuesta() - proceso.getdRafaga());

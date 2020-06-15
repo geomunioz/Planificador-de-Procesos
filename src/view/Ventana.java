@@ -123,7 +123,7 @@ public class Ventana extends JFrame {
 
         textLUE = new JTextArea(" ");
         textLUE.setFont(new Font("Monospaced", Font.PLAIN, 12));
-        textLUE.setRows(4);
+        textLUE.setRows(12); //4
         textLUE.setColumns(90);
         textLUE.setWrapStyleWord(true);
         textLUE.setEditable(false);
@@ -132,8 +132,8 @@ public class Ventana extends JFrame {
 
         text = new JTextArea(" ");
         text.setFont(new Font("Monospaced", Font.PLAIN, 12));
-        text.setRows(10);
-        text.setColumns(50);
+        text.setRows(17);   //10
+        text.setColumns(130); //50
         text.setWrapStyleWord(true);
         text.setEditable(false);
         scroll = new JScrollPane(text);
@@ -143,7 +143,8 @@ public class Ventana extends JFrame {
 
         jpLUE.add(LUE);
 
-        jpInferior.add(jpresultado);
+        //jpInferior.add(jpresultado); ahorita modifique
+        jpInferior.add(jpLUE);
         jpInferior.add(jpseleccion);
 
         btagregarP.addActionListener(new ActionListener() {
@@ -206,7 +207,7 @@ public class Ventana extends JFrame {
                         LUE = new JPanel();
                         textLUE = new JTextArea(metodo.resultadoLUE());
                         textLUE.setFont(new Font("Monospaced", Font.PLAIN, 12));
-                        textLUE.setRows(4);
+                        textLUE.setRows(12);
                         textLUE.setColumns(90);
                         textLUE.setWrapStyleWord(true);
                         textLUE.setEditable(false);
@@ -220,8 +221,8 @@ public class Ventana extends JFrame {
                         cambio = new JPanel();
                         text = new JTextArea(metodo.resultado());
                         text.setFont(new Font("Monospaced", Font.PLAIN, 12));
-                        text.setRows(10);
-                        text.setColumns(50);
+                        text.setRows(17);
+                        text.setColumns(130);
                         text.setWrapStyleWord(true);
                         text.setEditable(false);
                         scroll = new JScrollPane(text);
@@ -238,7 +239,7 @@ public class Ventana extends JFrame {
                         LUE = new JPanel();
                         textLUE = new JTextArea(metodo.resultadoLUE());
                         textLUE.setFont(new Font("Monospaced", Font.PLAIN, 12));
-                        textLUE.setRows(4);
+                        textLUE.setRows(12);
                         textLUE.setColumns(90);
                         textLUE.setWrapStyleWord(true);
                         textLUE.setEditable(false);
@@ -251,8 +252,8 @@ public class Ventana extends JFrame {
                         cambio = new JPanel();
                         text = new JTextArea(metodo.resultado());
                         text.setFont(new Font("Monospaced", Font.PLAIN, 12));
-                        text.setRows(10);
-                        text.setColumns(50);
+                        text.setRows(17);
+                        text.setColumns(130);
                         text.setWrapStyleWord(true);
                         text.setEditable(false);
                         scroll = new JScrollPane(text);
@@ -270,7 +271,7 @@ public class Ventana extends JFrame {
                         LUE = new JPanel();
                         textLUE = new JTextArea(metodo.resultadoLUE());
                         textLUE.setFont(new Font("Monospaced", Font.PLAIN, 12));
-                        textLUE.setRows(4);
+                        textLUE.setRows(12);
                         textLUE.setColumns(90);
                         textLUE.setWrapStyleWord(true);
                         textLUE.setEditable(false);
@@ -283,8 +284,8 @@ public class Ventana extends JFrame {
                         cambio = new JPanel();
                         text = new JTextArea(metodo.resultado());
                         text.setFont(new Font("Monospaced", Font.PLAIN, 12));
-                        text.setRows(10);
-                        text.setColumns(50);
+                        text.setRows(17);
+                        text.setColumns(130);
                         text.setWrapStyleWord(true);
                         text.setEditable(false);
                         scroll = new JScrollPane(text);
@@ -300,7 +301,7 @@ public class Ventana extends JFrame {
                         LUE = new JPanel();
                         textLUE = new JTextArea(metodo.resultadoLUE());
                         textLUE.setFont(new Font("Monospaced", Font.PLAIN, 12));
-                        textLUE.setRows(4);
+                        textLUE.setRows(12);
                         textLUE.setColumns(90);
                         textLUE.setWrapStyleWord(true);
                         textLUE.setEditable(false);
@@ -313,8 +314,8 @@ public class Ventana extends JFrame {
                         cambio = new JPanel();
                         text = new JTextArea(metodo.resultadoconPriori());
                         text.setFont(new Font("Monospaced", Font.PLAIN, 12));
-                        text.setRows(10);
-                        text.setColumns(50);
+                        text.setRows(17);
+                        text.setColumns(130);
                         text.setWrapStyleWord(true);
                         text.setEditable(false);
                         scroll = new JScrollPane(text);
@@ -343,7 +344,7 @@ public class Ventana extends JFrame {
                             LUE = new JPanel();
                             textLUE = new JTextArea(metodo.resultadoLUE());
                             textLUE.setFont(new Font("Monospaced", Font.PLAIN, 12));
-                            textLUE.setRows(4);
+                            textLUE.setRows(12);
                             textLUE.setColumns(90);
                             textLUE.setWrapStyleWord(true);
                             textLUE.setEditable(false);
@@ -356,8 +357,8 @@ public class Ventana extends JFrame {
                             cambio = new JPanel();
                             text = new JTextArea(metodo.resultadoconPriori());
                             text.setFont(new Font("Monospaced", Font.PLAIN, 12));
-                            text.setRows(10);
-                            text.setColumns(50);
+                            text.setRows(17);
+                            text.setColumns(130);
                             text.setWrapStyleWord(true);
                             text.setEditable(false);
                             scroll = new JScrollPane(text);
@@ -377,9 +378,10 @@ public class Ventana extends JFrame {
             }
         });
 
-        this.add(jpLUE, BorderLayout.NORTH);
+        //this.add(jpLUE, BorderLayout.NORTH); //ahorita modifco
+        this.add(jpresultado, BorderLayout.CENTER); //AHORITA
         this.add(jpInferior, BorderLayout.SOUTH);
-        this.setSize(700, 440);
+        this.setSize(1000, 640); //700 440
         this.setLocationRelativeTo(null);
         this.setVisible(true);
     }
